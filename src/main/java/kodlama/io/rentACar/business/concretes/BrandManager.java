@@ -16,17 +16,15 @@ import kodlama.io.rentACar.dataAccess.abstracts.BrandRepository;
 import kodlama.io.rentACar.entities.concretes.Brand;
 import lombok.AllArgsConstructor;
 
-@Service // bu sınıf bir business nesnesidir
+@Service 
 @AllArgsConstructor
 public class BrandManager implements BrandService {
-	private BrandRepository brandRepository; // loosely coupled, BrandManager dataAccess katmanı ile yalnızca interface üzerinden iletişime geçiyor
+	private BrandRepository brandRepository;
 	private ModelMapperService modelMapperService;
 	private BrandBusinessRules brandBusinessRules;
 	
 	@Override
 	public List<GetAllBrandsResponse> getAll() {
-		// iş kuralları
-		
 		List<Brand> brands = brandRepository.findAll();
 		/*List<GetAllBrandsResponse> brandsResponse = new ArrayList<GetAllBrandsResponse>();
 		

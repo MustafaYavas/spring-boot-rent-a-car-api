@@ -23,9 +23,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 public class Model {
-	@Id //PrimaryKey
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // otomatik artırma
-	@Column(name="id")	// veritabanında id olarak tutulan bir column aşağıdaki değişkene karşılık gelecek
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
 	private int id;		
 	
 	@Column(name="name")
@@ -33,7 +33,7 @@ public class Model {
 	
 	@ManyToOne
 	@JoinColumn(name="brand_id")
-	private Brand brand; // bir modelin yalnızca bir tane markası vardır
+	private Brand brand;
 	
 	@OneToMany(mappedBy = "model")
 	private List<Car> cars;

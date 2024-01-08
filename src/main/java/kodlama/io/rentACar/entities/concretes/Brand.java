@@ -21,14 +21,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 public class Brand {
-	@Id //PrimaryKey
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // otomatik artırma
-	@Column(name="id")	// veritabanında id olarak tutulan bir column aşağıdaki değişkene karşılık gelecek
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	@Column(name="id")	
 	private int id;		
 	
 	@Column(name="name")
 	private String name;
 	
-	@OneToMany(mappedBy = "brand") // brand tablosundan model tablosuna
-	private List<Model> models; // bir markanın birden fazla modeli vardır
+	@OneToMany(mappedBy = "brand") 
+	private List<Model> models; 
 }
